@@ -1,0 +1,530 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wisdom of Indian Saints | ಭಾರತೀಯ ಸಂತರ ಜ್ಞಾನ</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<style>
+:root {
+    --saffron: #c66a22;
+    --gold: #f0bd59;
+    --green: #246b50;
+    --navy: #1e293b;
+    --cream: #fffaf0;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: "Noto Sans Kannada", "Nirmala UI", system-ui, sans-serif;
+    color: var(--navy);
+    background: var(--cream);
+}
+html { scroll-behavior: smooth; }
+.navbar { background: #fffdf7; box-shadow: 0 3px 15px #0000000c; }
+.brand { font-weight: 850; color: var(--green); font-size: 1.15rem; }
+.brand i { color: var(--saffron); }
+.nav-link { font-weight: 600; }
+.language-btn {
+    border: 1px solid var(--green);
+    color: var(--green);
+    border-radius: 25px;
+    padding: 7px 15px;
+    background: white;
+    font-weight: 700;
+}
+.language-btn:hover { background: var(--green); color: white; }
+
+.hero {
+    color: white;
+    padding: 90px 0;
+    background:
+      radial-gradient(circle at 85% 20%, #e9b44d35, transparent 25%),
+      linear-gradient(125deg, #173f32, #23674b 65%, #a66a2c);
+}
+.hero h1 { font-weight: 850; line-height: 1.25; font-size: clamp(2.4rem,5vw,4.1rem); }
+.hero p { color: #f5f4e9; line-height: 1.9; font-size: 1.08rem; }
+.hero-art {
+    text-align: center;
+    padding: 35px 15px;
+    border: 1px solid #ffffff40;
+    background: #ffffff10;
+    border-radius: 28px;
+}
+.hero-art i { font-size: 6rem; color: var(--gold); }
+.hero-art .quote { font-size: 1.2rem; font-weight: 650; }
+
+.section { padding: 76px 0; }
+.section-title { font-weight: 850; color: var(--green); }
+.section-subtitle { color: #687568; max-width: 720px; margin: auto; line-height: 1.8; }
+.eyebrow {
+    color: var(--saffron);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: .78rem;
+}
+.saint-card, .value-card, .story-card {
+    height: 100%;
+    border: 1px solid #eee6d6;
+    background: white;
+    border-radius: 20px;
+    padding: 26px;
+    transition: .25s;
+}
+.saint-card:hover, .value-card:hover, .story-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 35px #34452d12;
+}
+.saint-icon {
+    width: 65px; height: 65px;
+    border-radius: 18px;
+    background: #f8edd8;
+    color: var(--saffron);
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.saint-card h4, .value-card h5, .story-card h5 { font-weight: 800; color: var(--green); }
+.saint-card p, .value-card p, .story-card p { line-height: 1.85; color: #5e695f; }
+.value-card { border-top: 4px solid var(--gold); }
+.value-card i { color: var(--saffron); font-size: 2rem; }
+.karnataka { background: #edf5eb; }
+.quote-section {
+    background: #1c4e3b;
+    color: white;
+    padding: 55px 24px;
+    border-radius: 24px;
+    text-align: center;
+}
+.quote-section blockquote { font-size: clamp(1.25rem,3vw,2rem); font-weight: 750; line-height: 1.7; }
+.quote-section p { color: #e1e9d8; }
+.daily-box {
+    border: 1px solid #ead9b7;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+.btn-wisdom {
+    background: var(--saffron);
+    color: white;
+    border-radius: 9px;
+    padding: 11px 22px;
+    font-weight: 750;
+    border: 0;
+}
+.btn-wisdom:hover { background: #a95314; color: white; }
+footer { background: #163b2e; color: #e9f0e7; padding: 35px 0; }
+footer a { color: #f5d78e; }
+[hidden] { display: none !important; }
+
+@media(max-width:767px) {
+    .hero { padding: 60px 0; }
+    .section { padding: 55px 0; }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+<div class="container py-2">
+    <a class="navbar-brand brand" href="#home">
+        <i class="bi bi-flower1"></i> Wisdom of India
+        <small class="d-block" style="font-size:.67rem;letter-spacing:1px">
+            ಭಾರತೀಯ ಜ್ಞಾನ ಪರಂಪರೆ
+        </small>
+    </a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu"
+        aria-label="Open navigation" aria-controls="menu" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <li class="nav-item"><a class="nav-link" href="#home" data-en="Home" data-kn="ಮುಖಪುಟ">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#saints" data-en="Indian Saints" data-kn="ಭಾರತೀಯ ಸಂತರು">Indian Saints</a></li>
+            <li class="nav-item"><a class="nav-link" href="#karnataka" data-en="Karnataka" data-kn="ಕರ್ನಾಟಕ">Karnataka</a></li>
+            <li class="nav-item"><a class="nav-link" href="#values" data-en="Moral Values" data-kn="ನೈತಿಕ ಮೌಲ್ಯಗಳು">Moral Values</a></li>
+            <li class="nav-item ms-lg-2">
+                <button class="language-btn" id="languageToggle" type="button">ಕನ್ನಡ</button>
+            </li>
+        </ul>
+    </div>
+</div>
+</nav>
+
+<header class="hero" id="home">
+<div class="container">
+<div class="row align-items-center g-5">
+    <div class="col-lg-7">
+        <span class="badge rounded-pill mb-3 px-3 py-2"
+              style="background:#ffffff20;color:#fff">
+            <i class="bi bi-brightness-high"></i>
+            <span data-en="Ancient Wisdom for Modern Life" data-kn="ಆಧುನಿಕ ಜೀವನಕ್ಕೆ ಪ್ರಾಚೀನ ಜ್ಞಾನ">Ancient Wisdom for Modern Life</span>
+        </span>
+        <h1 data-en="Walk the Path of Wisdom, Kindness and Truth"
+            data-kn="ಜ್ಞಾನ, ಕರುಣೆ ಮತ್ತು ಸತ್ಯದ ಹಾದಿಯಲ್ಲಿ ನಡೆಯೋಣ">
+            Walk the Path of Wisdom, Kindness and Truth
+        </h1>
+        <p class="mt-4"
+           data-en="Discover the lives and teachings of Indian monks, spiritual teachers and Karnataka's great saint-poets. Learn timeless lessons that help us become responsible, compassionate and honest human beings."
+           data-kn="ಭಾರತೀಯ ಸನ್ಯಾಸಿಗಳು, ಆಧ್ಯಾತ್ಮಿಕ ಗುರುಗಳು ಮತ್ತು ಕರ್ನಾಟಕದ ಮಹಾನ್ ಸಂತ ಕವಿಗಳ ಜೀವನ ಹಾಗೂ ಬೋಧನೆಗಳನ್ನು ತಿಳಿಯೋಣ. ಜವಾಬ್ದಾರಿಯುತ, ಕರುಣಾಮಯಿ ಮತ್ತು ಪ್ರಾಮಾಣಿಕ ಮನುಷ್ಯರಾಗಲು ಸಹಾಯ ಮಾಡುವ ಜೀವನ ಪಾಠಗಳನ್ನು ಕಲಿಯೋಣ.">
+           Discover the lives and teachings of Indian monks, spiritual teachers and Karnataka's great saint-poets. Learn timeless lessons that help us become responsible, compassionate and honest human beings.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+            <a href="#saints" class="btn btn-warning fw-bold px-4 py-3"
+               data-en="Meet the Saints" data-kn="ಸಂತರನ್ನು ಪರಿಚಯಿಸಿಕೊಳ್ಳಿ">Meet the Saints</a>
+            <a href="#values" class="btn btn-outline-light px-4 py-3"
+               data-en="Learn Moral Values" data-kn="ನೈತಿಕ ಮೌಲ್ಯಗಳನ್ನು ಕಲಿಯೋಣ">Learn Moral Values</a>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="hero-art">
+            <i class="bi bi-flower3"></i>
+            <p class="quote mt-3"
+               data-en="“A peaceful mind and a kind heart are great treasures.”"
+               data-kn="“ಶಾಂತ ಮನಸ್ಸು ಮತ್ತು ಕರುಣೆಯ ಹೃದಯವೇ ಅಮೂಲ್ಯ ಸಂಪತ್ತು.”">
+               “A peaceful mind and a kind heart are great treasures.”
+            </p>
+            <p data-en="Wisdom • Service • Self-discipline"
+               data-kn="ಜ್ಞಾನ • ಸೇವೆ • ಆತ್ಮಸಂಯಮ">Wisdom • Service • Self-discipline</p>
+        </div>
+    </div>
+</div>
+</div>
+</header>
+
+<section class="section" id="saints">
+<div class="container">
+<div class="text-center mb-5">
+    <div class="eyebrow" data-en="Great Teachers of India" data-kn="ಭಾರತದ ಮಹಾನ್ ಗುರುಗಳು">Great Teachers of India</div>
+    <h2 class="section-title mt-2" data-en="Indian Monks and Spiritual Leaders" data-kn="ಭಾರತೀಯ ಸನ್ಯಾಸಿಗಳು ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ನಾಯಕರು">Indian Monks and Spiritual Leaders</h2>
+    <p class="section-subtitle mt-3"
+       data-en="Across India's diverse spiritual traditions, teachers have encouraged compassion, discipline, self-knowledge and service to others."
+       data-kn="ಭಾರತದ ವೈವಿಧ್ಯಮಯ ಆಧ್ಯಾತ್ಮಿಕ ಪರಂಪರೆಗಳಲ್ಲಿ ಗುರುಗಳು ಕರುಣೆ, ಶಿಸ್ತು, ಆತ್ಮಜ್ಞಾನ ಮತ್ತು ಪರೋಪಕಾರವನ್ನು ಪ್ರೋತ್ಸಾಹಿಸಿದ್ದಾರೆ.">
+       Across India's diverse spiritual traditions, teachers have encouraged compassion, discipline, self-knowledge and service to others.
+    </p>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-6 col-lg-4">
+        <article class="saint-card">
+            <div class="saint-icon"><i class="bi bi-sunrise"></i></div>
+            <h4 data-en="Swami Vivekananda" data-kn="ಸ್ವಾಮಿ ವಿವೇಕಾನಂದರು">Swami Vivekananda</h4>
+            <p data-en="A Hindu monk and teacher who inspired young people to develop strength, confidence, service and fearlessness. His message encourages us to believe in our potential and help others."
+               data-kn="ಯುವಜನರಲ್ಲಿ ಶಕ್ತಿ, ಆತ್ಮವಿಶ್ವಾಸ, ಸೇವಾಭಾವ ಮತ್ತು ನಿರ್ಭಯತೆಯನ್ನು ಬೆಳೆಸಲು ಪ್ರೇರಣೆ ನೀಡಿದ ಹಿಂದೂ ಸನ್ಯಾಸಿ. ನಮ್ಮ ಸಾಮರ್ಥ್ಯದಲ್ಲಿ ನಂಬಿಕೆ ಇಟ್ಟು ಇತರರಿಗೆ ಸಹಾಯ ಮಾಡಲು ಅವರ ಸಂದೇಶ ಪ್ರೋತ್ಸಾಹಿಸುತ್ತದೆ.">
+               A Hindu monk and teacher who inspired young people to develop strength, confidence, service and fearlessness. His message encourages us to believe in our potential and help others.
+            </p>
+            <strong data-en="Life lesson: Believe in yourself and serve others."
+                    data-kn="ಜೀವನ ಪಾಠ: ನಿಮ್ಮ ಮೇಲೆ ನಂಬಿಕೆ ಇಡಿ ಮತ್ತು ಇತರರಿಗೆ ಸೇವೆ ಮಾಡಿ.">
+                Life lesson: Believe in yourself and serve others.
+            </strong>
+        </article>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+        <article class="saint-card">
+            <div class="saint-icon"><i class="bi bi-heart"></i></div>
+            <h4 data-en="Gautama Buddha" data-kn="ಗೌತಮ ಬುದ್ಧರು">Gautama Buddha</h4>
+            <p data-en="The founder of Buddhism taught compassion, mindfulness, moderation and freedom from hatred. His teachings encourage us to understand suffering and respond with wisdom rather than anger."
+               data-kn="ಬೌದ್ಧ ಧರ್ಮದ ಪ್ರವರ್ತಕರಾದ ಬುದ್ಧರು ಕರುಣೆ, ಜಾಗೃತ ಮನಸ್ಸು, ಮಿತ ಜೀವನ ಮತ್ತು ದ್ವೇಷದಿಂದ ಮುಕ್ತವಾಗುವುದನ್ನು ಬೋಧಿಸಿದರು. ಕೋಪದ ಬದಲು ವಿವೇಕದಿಂದ ಪ್ರತಿಕ್ರಿಯಿಸಲು ಅವರ ಬೋಧನೆಗಳು ಪ್ರೇರೇಪಿಸುತ್ತವೆ.">
+               The founder of Buddhism taught compassion, mindfulness, moderation and freedom from hatred. His teachings encourage us to understand suffering and respond with wisdom rather than anger.
+            </p>
+            <strong data-en="Life lesson: Pause, understand and act with compassion."
+                    data-kn="ಜೀವನ ಪಾಠ: ತಾಳ್ಮೆಯಿಂದ ಯೋಚಿಸಿ, ಅರ್ಥಮಾಡಿಕೊಂಡು ಕರುಣೆಯಿಂದ ನಡೆದುಕೊಳ್ಳಿ.">
+                Life lesson: Pause, understand and act with compassion.
+            </strong>
+        </article>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+        <article class="saint-card">
+            <div class="saint-icon"><i class="bi bi-book"></i></div>
+            <h4 data-en="Adi Shankaracharya" data-kn="ಆದಿ ಶಂಕರಾಚಾರ್ಯರು">Adi Shankaracharya</h4>
+            <p data-en="The philosopher and spiritual teacher is associated with Advaita Vedanta, which explores the unity of ultimate reality and the self. His tradition emphasizes inquiry, discernment and spiritual understanding."
+               data-kn="ಅದ್ವೈತ ವೇದಾಂತ ತತ್ತ್ವದೊಂದಿಗೆ ಸಂಬಂಧ ಹೊಂದಿರುವ ದಾರ್ಶನಿಕ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಗುರುಗಳು. ಅವರ ಪರಂಪರೆ ವಿಚಾರಶೀಲತೆ, ವಿವೇಕ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಅರಿವಿಗೆ ಮಹತ್ವ ನೀಡುತ್ತದೆ.">
+               The philosopher and spiritual teacher is associated with Advaita Vedanta, which explores the unity of ultimate reality and the self. His tradition emphasizes inquiry, discernment and spiritual understanding.
+            </p>
+            <strong data-en="Life lesson: Seek knowledge and think deeply."
+                    data-kn="ಜೀವನ ಪಾಠ: ಜ್ಞಾನವನ್ನು ಅರಸಿ, ಆಳವಾಗಿ ಚಿಂತಿಸಿ.">
+                Life lesson: Seek knowledge and think deeply.
+            </strong>
+        </article>
+    </div>
+</div>
+</div>
+</section>
+
+<section class="section karnataka" id="karnataka">
+<div class="container">
+<div class="text-center mb-5">
+    <div class="eyebrow" data-en="Pride of Karnataka" data-kn="ಕರ್ನಾಟಕದ ಹೆಮ್ಮೆ">Pride of Karnataka</div>
+    <h2 class="section-title mt-2" data-en="Saints and Vachana Poets of Karnataka" data-kn="ಕರ್ನಾಟಕದ ಸಂತರು ಮತ್ತು ವಚನಕಾರರು">Saints and Vachana Poets of Karnataka</h2>
+    <p class="section-subtitle mt-3"
+       data-en="Karnataka's spiritual heritage includes the Vachana movement, devotional poetry and teachers who reflected on equality, honest work, devotion and inner transformation."
+       data-kn="ಕರ್ನಾಟಕದ ಆಧ್ಯಾತ್ಮಿಕ ಪರಂಪರೆಯಲ್ಲಿ ವಚನ ಚಳವಳಿ, ಭಕ್ತಿ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಮಾನತೆ, ಪ್ರಾಮಾಣಿಕ ದುಡಿಮೆ, ಭಕ್ತಿ ಹಾಗೂ ಆಂತರಿಕ ಪರಿವರ್ತನೆಯ ಕುರಿತು ಚಿಂತಿಸಿದ ಗುರುಗಳು ಸೇರಿದ್ದಾರೆ.">
+       Karnataka's spiritual heritage includes the Vachana movement, devotional poetry and teachers who reflected on equality, honest work, devotion and inner transformation.
+    </p>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-6 col-lg-4">
+        <article class="saint-card">
+            <div class="saint-icon"><i class="bi bi-people"></i></div>
+            <h4 data-en="Basavanna" data-kn="ಬಸವಣ್ಣ">Basavanna</h4>
+            <p data-en="The 12th-century Karnataka saint, poet and social reformer is associated with the ideals of Kayaka (dignity of honest work) and Dasoha (sharing and service). He challenged social discrimination and emphasized ethical living."
+               data-kn="12ನೇ ಶತಮಾನದ ಕರ್ನಾಟಕದ ಸಂತ, ವಚನಕಾರ ಮತ್ತು ಸಮಾಜ ಸುಧಾರಕರಾದ ಬಸವಣ್ಣನವರು ಕಾಯಕ ಮತ್ತು ದಾಸೋಹದ ಆದರ್ಶಗಳಿಗೆ ಹೆಸರುವಾಸಿ. ಅವರು ಸಾಮಾಜಿಕ ತಾರತಮ್ಯವನ್ನು ಪ್ರಶ್ನಿಸಿ ನೈತಿಕ ಜೀವನಕ್ಕೆ ಮಹತ್ವ ನೀಡಿದರು.">
+               The 12th-century Karnataka saint, poet and social reformer is associated with the ideals of Kayaka (dignity of honest work) and Dasoha (sharing and service). He challenged social discrimination and emphasized ethical living.
+            </p>
+            <div class="p-3 rounded-3" style="background:#edf5eb">
+                <strong data-en="Values: Equality, honest work, generosity."
+                        data-kn="ಮೌಲ್ಯಗಳು: ಸಮಾನತೆ, ಪ್ರಾಮಾಣಿಕ ದುಡಿಮೆ, ಉದಾರತೆ.">
+                    Values: Equality, honest work, generosity.
+                </strong>
+            </div>
+        </article>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+        <article class="saint-card">
+            <div class="saint-icon"><i class="bi bi-flower1"></i></div>
+            <h4 data-en="Akka Mahadevi" data-kn="ಅಕ್ಕ ಮಹಾದೇವಿ">Akka Mahadevi</h4>
+            <p data-en="A celebrated Kannada Vachana poet and spiritual seeker, Akka Mahadevi expressed deep devotion, independence of thought and a commitment to her spiritual path. Her poetry invites reflection on inner freedom and sincerity."
+               data-kn="ಪ್ರಸಿದ್ಧ ಕನ್ನಡ ವಚನಕಾರ್ತಿ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸಾಧಕಿಯಾದ ಅಕ್ಕ ಮಹಾದೇವಿಯವರು ಆಳವಾದ ಭಕ್ತಿ, ಸ್ವತಂತ್ರ ಚಿಂತನೆ ಮತ್ತು ತಮ್ಮ ಆಧ್ಯಾತ್ಮಿಕ ಮಾರ್ಗದ ಬದ್ಧತೆಯನ್ನು ವ್ಯಕ್ತಪಡಿಸಿದರು. ಅವರ ಕಾವ್ಯವು ಆಂತರಿಕ ಸ್ವಾತಂತ್ರ್ಯ ಮತ್ತು ನೈಜತೆಯ ಕುರಿತು ಚಿಂತಿಸಲು ಪ್ರೇರೇಪಿಸುತ್ತದೆ.">
+               A celebrated Kannada Vachana poet and spiritual seeker, Akka Mahadevi expressed deep devotion, independence of thought and a commitment to her spiritual path. Her poetry invites reflection on inner freedom and sincerity.
+            </p>
+            <div class="p-3 rounded-3" style="background:#edf5eb">
+                <strong data-en="Values: Courage, devotion, authenticity."
+                        data-kn="ಮೌಲ್ಯಗಳು: ಧೈರ್ಯ, ಭಕ್ತಿ, ನೈಜತೆ.">
+                    Values: Courage, devotion, authenticity.
+                </strong>
+            </div>
+        </article>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+        <article class="saint-card">
+            <div class="saint-icon"><i class="bi bi-lightbulb"></i></div>
+            <h4 data-en="Allama Prabhu" data-kn="ಅಲ್ಲಮ ಪ್ರಭು">Allama Prabhu</h4>
+            <p data-en="A mystical Kannada saint-poet associated with the Vachana tradition. His writings question superficial appearances and encourage spiritual inquiry, self-reflection and freedom from attachment."
+               data-kn="ವಚನ ಪರಂಪರೆಯೊಂದಿಗೆ ಸಂಬಂಧ ಹೊಂದಿರುವ ಆಧ್ಯಾತ್ಮಿಕ ಕನ್ನಡ ಸಂತ ಕವಿಯಾದ ಅಲ್ಲಮ ಪ್ರಭು ಅವರು ಬಾಹ್ಯ ಆಡಂಬರಗಳನ್ನು ಪ್ರಶ್ನಿಸಿ, ಆತ್ಮಪರಿಶೀಲನೆ, ಆಧ್ಯಾತ್ಮಿಕ ವಿಚಾರ ಮತ್ತು ಆಸಕ್ತಿಗಳ ಬಂಧನದಿಂದ ಮುಕ್ತವಾಗುವುದನ್ನು ಪ್ರೋತ್ಸಾಹಿಸಿದರು.">
+               A mystical Kannada saint-poet associated with the Vachana tradition. His writings question superficial appearances and encourage spiritual inquiry, self-reflection and freedom from attachment.
+            </p>
+            <div class="p-3 rounded-3" style="background:#edf5eb">
+                <strong data-en="Values: Wisdom, simplicity, self-awareness."
+                        data-kn="ಮೌಲ್ಯಗಳು: ಜ್ಞಾನ, ಸರಳತೆ, ಆತ್ಮಜಾಗೃತಿ.">
+                    Values: Wisdom, simplicity, self-awareness.
+                </strong>
+            </div>
+        </article>
+    </div>
+</div>
+</div>
+</section>
+
+<section class="section" id="values">
+<div class="container">
+<div class="text-center mb-5">
+    <div class="eyebrow" data-en="Values for Everyday Life" data-kn="ದೈನಂದಿನ ಜೀವನದ ಮೌಲ್ಯಗಳು">Values for Everyday Life</div>
+    <h2 class="section-title mt-2" data-en="Moral Values We Can Practise" data-kn="ನಾವು ಪಾಲಿಸಬಹುದಾದ ನೈತಿಕ ಮೌಲ್ಯಗಳು">Moral Values We Can Practise</h2>
+    <p class="section-subtitle mt-3"
+       data-en="Wisdom becomes meaningful when we practise it at home, in school, at work and in society."
+       data-kn="ಮನೆ, ಶಾಲೆ, ಕೆಲಸದ ಸ್ಥಳ ಮತ್ತು ಸಮಾಜದಲ್ಲಿ ಜ್ಞಾನವನ್ನು ಆಚರಣೆಗೆ ತಂದಾಗ ಅದು ಅರ್ಥಪೂರ್ಣವಾಗುತ್ತದೆ.">
+       Wisdom becomes meaningful when we practise it at home, in school, at work and in society.
+    </p>
+</div>
+
+<div class="row g-4">
+    <div class="col-6 col-lg-4">
+        <div class="value-card">
+            <i class="bi bi-shield-check"></i>
+            <h5 class="mt-3" data-en="Truthfulness" data-kn="ಸತ್ಯವಂತಿಕೆ">Truthfulness</h5>
+            <p data-en="Speak truthfully, admit mistakes and earn trust through honest actions."
+               data-kn="ಸತ್ಯವನ್ನೇ ಮಾತನಾಡಿ, ತಪ್ಪುಗಳನ್ನು ಒಪ್ಪಿಕೊಳ್ಳಿ ಮತ್ತು ಪ್ರಾಮಾಣಿಕ ನಡೆಗಳಿಂದ ನಂಬಿಕೆ ಗಳಿಸಿ.">
+               Speak truthfully, admit mistakes and earn trust through honest actions.
+            </p>
+        </div>
+    </div>
+    <div class="col-6 col-lg-4">
+        <div class="value-card">
+            <i class="bi bi-heart-fill"></i>
+            <h5 class="mt-3" data-en="Compassion" data-kn="ಕರುಣೆ">Compassion</h5>
+            <p data-en="Understand other people's feelings and help without expecting a reward."
+               data-kn="ಇತರರ ಭಾವನೆಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಂಡು ಪ್ರತಿಫಲದ ನಿರೀಕ್ಷೆಯಿಲ್ಲದೆ ಸಹಾಯ ಮಾಡಿ.">
+               Understand other people's feelings and help without expecting a reward.
+            </p>
+        </div>
+    </div>
+    <div class="col-6 col-lg-4">
+        <div class="value-card">
+            <i class="bi bi-people-fill"></i>
+            <h5 class="mt-3" data-en="Equality" data-kn="ಸಮಾನತೆ">Equality</h5>
+            <p data-en="Respect every person regardless of background, status or ability."
+               data-kn="ಹಿನ್ನೆಲೆ, ಸ್ಥಾನಮಾನ ಅಥವಾ ಸಾಮರ್ಥ್ಯವನ್ನು ಲೆಕ್ಕಿಸದೆ ಪ್ರತಿಯೊಬ್ಬರನ್ನೂ ಗೌರವಿಸಿ.">
+               Respect every person regardless of background, status or ability.
+            </p>
+        </div>
+    </div>
+    <div class="col-6 col-lg-4">
+        <div class="value-card">
+            <i class="bi bi-tools"></i>
+            <h5 class="mt-3" data-en="Dignity of Work" data-kn="ಕಾಯಕದ ಗೌರವ">Dignity of Work</h5>
+            <p data-en="Do your work sincerely. Every honest contribution has value."
+               data-kn="ನಿಮ್ಮ ಕೆಲಸವನ್ನು ನಿಷ್ಠೆಯಿಂದ ಮಾಡಿ. ಪ್ರತಿಯೊಂದು ಪ್ರಾಮಾಣಿಕ ಕೊಡುಗೆಯೂ ಮೌಲ್ಯಯುತವಾಗಿದೆ.">
+               Do your work sincerely. Every honest contribution has value.
+            </p>
+        </div>
+    </div>
+    <div class="col-6 col-lg-4">
+        <div class="value-card">
+            <i class="bi bi-hourglass-split"></i>
+            <h5 class="mt-3" data-en="Self-Discipline" data-kn="ಆತ್ಮಶಿಸ್ತು">Self-Discipline</h5>
+            <p data-en="Manage your time, control harmful impulses and fulfil your responsibilities."
+               data-kn="ಸಮಯವನ್ನು ಸರಿಯಾಗಿ ಬಳಸಿ, ಹಾನಿಕಾರಕ ಪ್ರಚೋದನೆಗಳನ್ನು ನಿಯಂತ್ರಿಸಿ ಮತ್ತು ಜವಾಬ್ದಾರಿಗಳನ್ನು ಪೂರೈಸಿ.">
+               Manage your time, control harmful impulses and fulfil your responsibilities.
+            </p>
+        </div>
+    </div>
+    <div class="col-6 col-lg-4">
+        <div class="value-card">
+            <i class="bi bi-gift"></i>
+            <h5 class="mt-3" data-en="Sharing and Service" data-kn="ಹಂಚಿಕೆ ಮತ್ತು ಸೇವೆ">Sharing and Service</h5>
+            <p data-en="Share your knowledge, support people in need and contribute to your community."
+               data-kn="ನಿಮ್ಮ ಜ್ಞಾನವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ, ಅಗತ್ಯವಿರುವವರಿಗೆ ನೆರವಾಗಿ ಮತ್ತು ಸಮಾಜದ ಅಭಿವೃದ್ಧಿಗೆ ಕೊಡುಗೆ ನೀಡಿ.">
+               Share your knowledge, support people in need and contribute to your community.
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<section class="section pt-0">
+<div class="container">
+<div class="quote-section">
+    <i class="bi bi-quote fs-1" style="color:#f0bd59"></i>
+    <blockquote data-en="The real measure of wisdom is how kindly and honestly we treat others."
+                data-kn="ನಾವು ಇತರರೊಂದಿಗೆ ಎಷ್ಟು ಕರುಣೆಯಿಂದ ಮತ್ತು ಪ್ರಾಮಾಣಿಕವಾಗಿ ನಡೆದುಕೊಳ್ಳುತ್ತೇವೆ ಎಂಬುದೇ ಜ್ಞಾನದ ನಿಜವಾದ ಅಳತೆ.">
+        The real measure of wisdom is how kindly and honestly we treat others.
+    </blockquote>
+    <p data-en="A reflection for everyday life — inspired by universal moral values."
+       data-kn="ದೈನಂದಿನ ಜೀವನದ ಚಿಂತನೆ — ಸಾರ್ವತ್ರಿಕ ನೈತಿಕ ಮೌಲ್ಯಗಳಿಂದ ಪ್ರೇರಿತ.">
+       A reflection for everyday life — inspired by universal moral values.
+    </p>
+</div>
+</div>
+</section>
+
+<section class="section pt-0">
+<div class="container">
+<div class="daily-box">
+    <div class="eyebrow" data-en="Think and Reflect" data-kn="ಯೋಚಿಸಿ ಮತ್ತು ಆತ್ಮಪರಿಶೀಲನೆ ಮಾಡಿ">Think and Reflect</div>
+    <h2 class="section-title my-3" data-en="Today's Moral Lesson" data-kn="ಇಂದಿನ ನೀತಿ ಪಾಠ">Today's Moral Lesson</h2>
+    <p id="lessonText" class="fs-5" aria-live="polite"
+       data-en="A small act of kindness can make a big difference in someone's life."
+       data-kn="ಸಣ್ಣದಾದ ಕರುಣೆಯ ಕಾರ್ಯವೂ ಮತ್ತೊಬ್ಬರ ಜೀವನದಲ್ಲಿ ದೊಡ್ಡ ಬದಲಾವಣೆಯನ್ನು ತರಬಹುದು.">
+       A small act of kindness can make a big difference in someone's life.
+    </p>
+    <button class="btn btn-wisdom mt-2" id="nextLesson" type="button">
+        <span data-en="Read Another Lesson" data-kn="ಮತ್ತೊಂದು ನೀತಿ ಪಾಠ ಓದಿ">Read Another Lesson</span>
+        <i class="bi bi-arrow-right ms-1"></i>
+    </button>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container text-center">
+    <div class="fs-5 fw-bold mb-2">
+        <i class="bi bi-flower1"></i>
+        <span data-en="Wisdom of Indian Saints" data-kn="ಭಾರತೀಯ ಸಂತರ ಜ್ಞಾನ">Wisdom of Indian Saints</span>
+    </div>
+    <p data-en="Learn from the past. Practise goodness today. Build a better tomorrow."
+       data-kn="ಹಿಂದಿನವರಿಂದ ಕಲಿಯೋಣ. ಇಂದು ಒಳ್ಳೆಯತನವನ್ನು ಪಾಲಿಸೋಣ. ಉತ್ತಮ ನಾಳೆಯನ್ನು ನಿರ್ಮಿಸೋಣ.">
+       Learn from the past. Practise goodness today. Build a better tomorrow.
+    </p>
+    <small>© <span id="year"></span> | <span data-en="A celebration of India's spiritual and moral heritage" data-kn="ಭಾರತದ ಆಧ್ಯಾತ್ಮಿಕ ಮತ್ತು ನೈತಿಕ ಪರಂಪರೆಯ ಸಂಭ್ರಮ">A celebration of India's spiritual and moral heritage</span></small>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+let currentLanguage = "en";
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function setLanguage(language) {
+    currentLanguage = language;
+    document.documentElement.lang = language === "kn" ? "kn" : "en";
+
+    document.querySelectorAll("[data-en][data-kn]").forEach(element => {
+        element.textContent = element.dataset[language];
+    });
+
+    document.getElementById("languageToggle").textContent =
+        language === "en" ? "ಕನ್ನಡ" : "English";
+}
+
+document.getElementById("languageToggle").addEventListener("click", () => {
+    setLanguage(currentLanguage === "en" ? "kn" : "en");
+});
+
+const lessons = [
+    {
+        en: "A small act of kindness can make a big difference in someone's life.",
+        kn: "ಸಣ್ಣದಾದ ಕರುಣೆಯ ಕಾರ್ಯವೂ ಮತ್ತೊಬ್ಬರ ಜೀವನದಲ್ಲಿ ದೊಡ್ಡ ಬದಲಾವಣೆಯನ್ನು ತರಬಹುದು."
+    },
+    {
+        en: "Honest work gives dignity to life. Do every task with sincerity.",
+        kn: "ಪ್ರಾಮಾಣಿಕ ದುಡಿಮೆ ಜೀವನಕ್ಕೆ ಗೌರವ ತರುತ್ತದೆ. ಪ್ರತಿಯೊಂದು ಕೆಲಸವನ್ನೂ ನಿಷ್ಠೆಯಿಂದ ಮಾಡಿ."
+    },
+    {
+        en: "Respect people for who they are, not for their wealth or status.",
+        kn: "ಜನರನ್ನು ಅವರ ಸಂಪತ್ತು ಅಥವಾ ಸ್ಥಾನಮಾನಕ್ಕಾಗಿ ಅಲ್ಲ, ಅವರ ವ್ಯಕ್ತಿತ್ವಕ್ಕಾಗಿ ಗೌರವಿಸಿ."
+    },
+    {
+        en: "Before reacting in anger, pause, breathe and think.",
+        kn: "ಕೋಪದಿಂದ ಪ್ರತಿಕ್ರಿಯಿಸುವ ಮೊದಲು ನಿಂತು, ಉಸಿರೆಳೆದು ಯೋಚಿಸಿ."
+    },
+    {
+        en: "Knowledge becomes valuable when it is used to help others.",
+        kn: "ಇತರರಿಗೆ ಸಹಾಯ ಮಾಡಲು ಬಳಸಿದಾಗ ಜ್ಞಾನವು ಮೌಲ್ಯಯುತವಾಗುತ್ತದೆ."
+    },
+    {
+        en: "Admitting a mistake is a sign of courage and maturity.",
+        kn: "ತಪ್ಪನ್ನು ಒಪ್ಪಿಕೊಳ್ಳುವುದು ಧೈರ್ಯ ಮತ್ತು ಪ್ರಬುದ್ಧತೆಯ ಸಂಕೇತ."
+    },
+    {
+        en: "Share what you can and never look down on another person.",
+        kn: "ನಿಮಗೆ ಸಾಧ್ಯವಾದುದನ್ನು ಹಂಚಿಕೊಳ್ಳಿ ಮತ್ತು ಯಾರನ್ನೂ ಕೀಳಾಗಿ ಕಾಣಬೇಡಿ."
+    }
+];
+
+let lessonIndex = 0;
+
+document.getElementById("nextLesson").addEventListener("click", () => {
+    lessonIndex = (lessonIndex + 1) % lessons.length;
+    document.getElementById("lessonText").textContent =
+        lessons[lessonIndex][currentLanguage];
+});
+
+// Close mobile navigation after a link is selected.
+document.querySelectorAll("#menu .nav-link").forEach(link => {
+    link.addEventListener("click", () => {
+        const menu = document.getElementById("menu");
+        if (menu.classList.contains("show")) {
+            bootstrap.Collapse.getOrCreateInstance(menu).hide();
+        }
+    });
+});
+</script>
+</body>
+</html>
