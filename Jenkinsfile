@@ -17,7 +17,7 @@ pipeline {
 
     stages {
 
-        stage('1. Checkout GitHub') {
+        stage('Checkout GitHub') {
             steps {
                 echo 'Checking out source code from GitHub'
 
@@ -39,19 +39,14 @@ pipeline {
                         exit 1
                     }
 
-                    test -f Jenkinsfile || {
-                        echo "ERROR: Jenkinsfile not found"
-                        exit 1
-                    }
-
-                    echo "All required files are present."
+                    echo "Required files found."
                 '''
             }
         }
 
-        stage('2. Check Docker') {
+        stage('Check Docker') {
             steps {
-                echo 'Checking Docker CLI and daemon'
+                echo 'Checking Docker installation and daemon'
 
                 sh '''
                     set -eu
@@ -61,7 +56,7 @@ pipeline {
             }
         }
 
-        stage('3. Configure Docker Network') {
+        stage('Configure Docker Network') {
             steps {
                 echo 'Creating Docker network if necessary'
 
@@ -78,24 +73,24 @@ pipeline {
             }
         }
 
-        stage('4. Build Website Image') {
+        stage('Build Website Image') {
             steps {
-                echo 'Building website image'
+                echo 'Building website Docker image'
 
                 sh '''
                     set -eu
 
                     docker build -t "$IMAGE_NAME" .
 
-                    echo "Website image built successfully."
+                    echo "Image built successfully."
                     docker image ls "$IMAGE_NAME"
                 '''
             }
         }
 
-        stage('5. Remove Old Website') {
+        stage('Remove Old Website') {
             steps {
-                echo 'Removing old website container if it exists'
+                echo 'Removing the previous website container'
 
                 sh '''
                     docker rm -f "$APP_NAME" 2>/dev/null || true
@@ -103,9 +98,9 @@ pipeline {
             }
         }
 
-        stage('6. Deploy Website') {
+        stage('Deploy Website') {
             steps {
-                echo 'Deploying website container'
+                echo 'Starting the website container'
 
                 sh '''
                     set -eu
@@ -123,7 +118,7 @@ pipeline {
             }
         }
 
-        stage('7. Verify Container') {
+        stage('Verify Container') {
             steps {
                 echo 'Checking website container status'
 
@@ -144,9 +139,9 @@ pipeline {
             }
         }
 
-        stage('8. Verify Docker Network') {
+        stage('Configure Network Connectivity') {
             steps {
-                echo 'Checking Docker network connectivity'
+                echo 'Connecting Jenkins and website to the shared network'
 
                 sh '''
                     set -eu
@@ -155,9 +150,10 @@ pipeline {
                         --format='{{json .Containers}}' \
                         | grep -q "$APP_NAME"; then
 
-                        echo "ERROR: Website is not connected to the network."
-                        docker network inspect "$NETWORK_NAME"
-                        exit 1
+                        echo "Connecting website to the network..."
+
+                        docker network connect \
+                            "$NETWORK_NAME" "$APP_NAME"
                     fi
 
                     if ! docker network inspect "$NETWORK_NAME" \
@@ -170,15 +166,15 @@ pipeline {
                             "$NETWORK_NAME" "$JENKINS_CONTAINER"
                     fi
 
-                    echo "Jenkins and website network configuration verified."
+                    echo "Network connectivity configured."
                     docker network inspect "$NETWORK_NAME"
                 '''
             }
         }
 
-        stage('9. Test Website') {
+        stage('Verify Deployment') {
             steps {
-                echo 'Testing website HTTP response and content'
+                echo 'Waiting for Nginx and verifying the website'
 
                 sh '''
                     set -eu
@@ -194,6 +190,7 @@ pipeline {
                             "http://$APP_NAME/" \
                             -o /tmp/mevi-site.html; then
 
+                            echo "Website is responding successfully!"
                             SUCCESS=1
                             break
                         fi
@@ -207,13 +204,13 @@ pipeline {
                         exit 1
                     fi
 
-                    echo "SUCCESS: Website returned an HTTP response."
+                    echo "Checking website page title..."
 
                     if grep -qi "Wisdom of Indian Saints" /tmp/mevi-site.html; then
-                        echo "SUCCESS: Expected website title was found."
+                        echo "SUCCESS: Expected website title found."
                     else
-                        echo "ERROR: Expected website title was not found."
-                        echo "Actual page title:"
+                        echo "ERROR: Expected title was not found."
+                        echo "Actual title:"
                         grep -i "<title>" /tmp/mevi-site.html || true
                         exit 1
                     fi
@@ -221,17 +218,14 @@ pipeline {
             }
         }
 
-        stage('10. Verify Published Port') {
+        stage('Verify Published Port') {
             steps {
-                echo 'Verifying website port mapping'
+                echo 'Verifying the website inside its container'
 
                 sh '''
                     set -eu
 
-                    echo "Published website ports:"
                     docker port "$APP_NAME"
-
-                    echo "Checking Nginx response inside the website container..."
 
                     docker exec "$APP_NAME" \
                         wget -q -O - http://127.0.0.1/ \
@@ -240,19 +234,18 @@ pipeline {
                     if grep -qi "Wisdom of Indian Saints" /tmp/mevi-container-page.html; then
                         echo "SUCCESS: Website responds inside the container."
                     else
-                        echo "ERROR: Website content verification failed."
+                        echo "ERROR: Container content verification failed."
                         exit 1
                     fi
 
-                    echo "Host port: 8082"
                     echo "Website URL: http://localhost:8082/"
                 '''
             }
         }
 
-        stage('11. Deployment Summary') {
+        stage('Deployment Summary') {
             steps {
-                echo 'Displaying deployment summary'
+                echo 'Displaying final deployment details'
 
                 sh '''
                     echo "========================================"
@@ -262,7 +255,7 @@ pipeline {
                     echo "Docker image:"
                     docker image ls "$IMAGE_NAME"
 
-                    echo "Website container:"
+                    echo "Running website container:"
                     docker ps --filter "name=^/${APP_NAME}$"
 
                     echo "Published ports:"
@@ -300,23 +293,18 @@ pipeline {
             ==========================================
             PIPELINE FAILED
             ==========================================
-            Open Console Output and locate the first
-            failed command.
-
-            Check Docker access, file names,
-            container status, network connectivity,
-            and the expected website title.
+            Check Console Output for the first error.
             ==========================================
             '''
 
             sh '''
-                echo "All containers:"
+                echo "Container status:"
                 docker ps -a || true
 
-                echo "Website container logs:"
+                echo "Website logs:"
                 docker logs "$APP_NAME" 2>&1 || true
 
-                echo "Docker network details:"
+                echo "Docker network:"
                 docker network inspect "$NETWORK_NAME" 2>&1 || true
             '''
         }
